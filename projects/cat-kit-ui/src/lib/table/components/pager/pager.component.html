@@ -1,0 +1,12 @@
+<div class="pager-container">
+    <div class="pages">
+        <span>Page: </span>
+        <button *ngFor="let i of pages | enumerate" class="button"
+            [ngClass]="{'active': (i + 1) == currentPage}" (click)="pageChanged(i + 1)">{{i + 1}}</button>
+    </div>
+    <div class="page-sizes">
+        <span>Page Size: </span><button *ngFor="let pageSizeBtn of pageSizes" class="button"
+            [ngClass]="{'active': pageSizeBtn == pageSize}"
+            (click)="pageSizeChanged(pageSizeBtn)">{{pageSizeBtn}}</button>
+    </div>
+</div>

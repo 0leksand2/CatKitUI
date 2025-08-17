@@ -1,0 +1,30 @@
+.main {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+
+    .header {
+        display: flex;
+        align-items: center;
+        background-color: #1abc9c;
+        padding: 16px;
+        color: #fff;
+
+        .menu-btn {
+            background: none;
+            border: none;
+            font-size: 24px;
+            margin-right: 16px;
+            cursor: pointer;
+            color: #fff;
+        }
+    }
+
+    .content {
+        padding: 16px;
+        overflow-y: auto;
+        flex: 1;
+        background-color: #ecf0f1;
+    }
+}

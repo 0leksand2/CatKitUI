@@ -3,6 +3,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "cat-kit-ui": [
+        "./dist/cat-kit-ui"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -29,6 +34,12 @@
     },
     {
       "path": "./tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/cat-kit-ui/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/cat-kit-ui/tsconfig.spec.json"
     }
   ]
 }

@@ -1,0 +1,27 @@
+<div class="custom-select" [class.disabled]="disabled" [class.open]="isOpen" [style.width]="width">
+    <div class="select-trigger" (click)="toggleDropdown()" #trigger>
+        <span class="selected-value" [class.placeholder]="!selectedOption">
+            {{ selectedOption?.[nameOption] || placeholder }}
+        </span>
+
+        <div class="arrow" [class.rotated]="isOpen">
+            <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
+                <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
+                    stroke-linejoin="round" />
+            </svg>
+        </div>
+    </div>
+
+    <div class="dropdown" [class.show]="isOpen" #dropdown>
+        <div class="options-container">
+            <div *ngFor="let option of options; trackBy: trackByFn" class="option"
+                [class.selected]="option[valueOption] === selectedValue" [class.disabled]="option.disabled"
+                (click)="selectOption(option)">
+                {{ option[nameOption] }}
+            </div>
+            <div *ngIf="options.length === 0" class="no-options">
+                No options available
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,31 @@
+.cs-table {
+  border: 1px solid rgb(221, 221, 221);
+  border-collapse: collapse;
+  width: 100%;
+  border-radius: 4px;
+
+  thead {
+    tr {
+      border-bottom: 2px solid rgb(221, 221, 221);
+    }
+
+    th.header-cell {
+      font-weight: bold;
+    }
+  }
+
+  td {
+    border: 1px solid rgb(221, 221, 221);
+    padding: 5px 4px;
+  }
+
+  th {
+    border: 1px solid rgb(221, 221, 221);
+  }
+
+  button {
+    background-color: transparent; // "none" is invalid for background-color
+    cursor: pointer;
+    border: none;
+  }
+}

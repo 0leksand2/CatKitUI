@@ -1,0 +1,34 @@
+<table class="cs-table">
+    <thead>
+        <tr>
+            <th *ngFor="let col of columns" class="header-cell">
+                {{ col.caption }}
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr *ngFor="let row of dataSource">
+            <ng-container *ngFor="let col of columns">
+                <td [ngStyle]="{'width.px': col.width}">
+                    <ng-container *ngIf="col.template; else defaultCell">
+                        <ng-container
+                            *ngTemplateOutlet="col.template; context: { $implicit: row[col.field], row: row }">
+                        </ng-container>
+                    </ng-container>
+                    <ng-template #defaultCell>
+                        {{ row[col.field] }}
+                    </ng-template>
+                </td>
+            </ng-container>
+        </tr>
+    </tbody>
+</table>
+<kit-pager 
+    *ngIf="showPager" 
+    [totalItems]="totalCount" 
+    [pages]="pages" 
+    [pageSize]="pageSize" 
+    [currentPage]="currentPage"
+    [pageSizes]="pageSizes" 
+    (pagerPropertiesChanged)="paramsChanged($event)">
+</kit-pager>

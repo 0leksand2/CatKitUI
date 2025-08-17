@@ -1,0 +1,10 @@
+<div class="main">
+    <div class="header">
+        <button class="menu-btn" *ngIf="sidenavLayoutService.isMobile"
+            (click)="sidenavLayoutService.toggleSidenav()">☰</button>
+        <h1>My App</h1>
+    </div>
+    <div class="content">
+        <ng-content></ng-content>
+    </div>
+</div>
