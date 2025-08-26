@@ -1,4 +1,4 @@
-import { Component, HostListener, signal } from '@angular/core';
+import { Component, HostListener } from '@angular/core';
 import { SidenavLayoutService } from '../../services/sidebar.service';
 
 
@@ -6,9 +6,14 @@ import { SidenavLayoutService } from '../../services/sidebar.service';
     selector: 'kit-sidenav',
     templateUrl: './sidenav.component.html',
     styleUrl: './sidenav.component.scss',
-    standalone: false
+    standalone: false,
+    host: {
+        '[class.open]': 'sidenavLayoutService.isSidenavOpen',
+        '[class.mobile]': 'sidenavLayoutService.isMobile'
+    }
 })
 export class KitSidenavComponent {
+    sidenav: boolean = true;
     constructor(public sidenavLayoutService: SidenavLayoutService){ }
 
     ngOnInit() {

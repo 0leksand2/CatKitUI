@@ -1,4 +1,3 @@
-<div class="sidenav" [class.open]="sidenavLayoutService.isSidenavOpen" [class.mobile]="sidenavLayoutService.isMobile">
-    <button class="close-btn" *ngIf="sidenavLayoutService.isMobile" (click)="sidenavLayoutService.toggleSidenav()">✕</button>
-    <ng-content></ng-content>
-</div>
+<button class="close-btn" *ngIf="sidenavLayoutService.isMobile"
+    (click)="sidenavLayoutService.toggleSidenav()">✕</button>
+<ng-content></ng-content>

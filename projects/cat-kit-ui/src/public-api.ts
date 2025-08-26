@@ -3,7 +3,6 @@
  */
 
 export * from './lib/cat-kit-ui';
-
 /* SideBar */
 export * from './lib/sidebar/components/sidenav.layout.component/sidenav.layout.component';
 export * from './lib/sidebar/components/sidenav.component/sidenav.component';
