@@ -7,10 +7,10 @@
     .header {
         display: flex;
         align-items: center;
-        background-color: #1abc9c;
+        background-color: #1a6ebc;
         padding: 16px;
         color: #fff;
-
+        height: 25px;
         .menu-btn {
             background: none;
             border: none;
@@ -23,9 +23,10 @@
 
     .content {
         padding: 16px;
-        overflow-y: auto;
+        overflow-y: hidden;
         flex: 1;
         background-color: #ecf0f1;
+        height: calc(100vh - 25px);
     }
 }
 

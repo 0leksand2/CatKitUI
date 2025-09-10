@@ -1,4 +1,4 @@
-import { Component, HostListener } from '@angular/core';
+import { Component, HostListener, Input } from '@angular/core';
 import { SidenavLayoutService } from '../../services/sidebar.service';
 
 

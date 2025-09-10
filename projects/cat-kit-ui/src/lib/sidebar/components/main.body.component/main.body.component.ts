@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, Input, signal } from '@angular/core';
 import { SidenavLayoutService } from '../../services/sidebar.service';
 
 
@@ -13,4 +13,5 @@ import { SidenavLayoutService } from '../../services/sidebar.service';
 })
 export class KitMainBodyComponent {
     constructor(public sidenavLayoutService: SidenavLayoutService){ }
+    @Input() title!: string;
 }

@@ -1,14 +1,33 @@
+import { CommonModule } from '@angular/common';
 import { Component, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { KitSidenavLayoutModule } from 'cat-kit-ui';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, KitSidenavLayoutModule],
+  imports: [RouterOutlet, CommonModule, KitSidenavLayoutModule],
   templateUrl: './app.html',
   styleUrl: './app.scss',
   standalone: true
 })
 export class App {
   protected readonly title = signal('CatKitUI');
+
+  menu:any[] = [
+    {
+      url: '',
+      text: 'Home',
+      icon: 'fa fa-home'
+    },
+    {
+      url: 'buttons',
+      text: 'Buttons',
+      icon: 'fa fa-home'
+    }
+  ];
+
+  constructor(){
+
+  }
+
 }

@@ -1,9 +1,14 @@
 <kit-sidenav-layout>
   <kit-sidenav>
-    sidenav
+    @for (item of menu; track item.id){
+      <a [href]="item.url">
+        <div>
+        <i class="{{item.icon}}"></i>{{item.text}}
+        </div>
+      </a>
+    }
   </kit-sidenav>
-  <kit-main-body>
-    main body
+  <kit-main-body [title]="'Cat-Kit UI 0.0.0.1'">
     <router-outlet />
   </kit-main-body>
 </kit-sidenav-layout>

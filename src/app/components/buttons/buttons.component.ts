@@ -8,6 +8,6 @@ import { Component, signal } from '@angular/core';
   //styleUrl: './app.scss',
   standalone: true
 })
-export class App {
-  protected readonly title = signal('CatKitUI');
+export class ButtonsComponent {
+  protected readonly title = signal('Buttons | CatKitUI');
 }
