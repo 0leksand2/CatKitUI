@@ -1,4 +1,4 @@
-import { Component, Input, signal } from '@angular/core';
+import { ChangeDetectionStrategy, Component, Input, signal } from '@angular/core';
 import { SidenavLayoutService } from '../../services/sidebar.service';
 
 
@@ -7,6 +7,7 @@ import { SidenavLayoutService } from '../../services/sidebar.service';
     templateUrl: './main.body.component.html',
     styleUrls: [`./main.body.component.scss`],
     standalone: false,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         '[class.mobile]': 'sidenavLayoutService.isMobile'
     }

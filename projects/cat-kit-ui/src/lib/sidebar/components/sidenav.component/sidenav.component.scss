@@ -20,7 +20,7 @@
     .header{
         width: 100%;
         text-align: center;
-        color: white;
+        color: $text-color-light;
         padding-top: 20px;
         padding-bottom: 10px;
     }
@@ -46,7 +46,7 @@
         
         border-radius: 0 11px 11px 0;
         .toggle-btn {
-            color: white;
+            color: $text-color-light;
         }
     }
 

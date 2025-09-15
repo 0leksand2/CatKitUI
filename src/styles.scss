@@ -1,10 +1,28 @@
+@import "../projects/cat-kit-ui/src/lib/assets/buttons.scss";
+
+
 * {
+    font-family: 'Arimo', sans-serif;
     padding: 0;
     margin: 0;
 }
 
-html, body{
+html,
+body {
     height: 100vh;
-    overflow:hidden;
-    margin: 0
+    overflow: hidden;
+    margin: 0;
+    color: #363636;
+}
+
+.flex{
+    display: flex;
+
+    &.gap-5{
+        gap: 5px;
+    }
+
+    &.gap-10{
+        gap: 10px;
+    }
 }

@@ -25,6 +25,11 @@ export class App {
       icon: 'fa fa-circle-dot'
     },
     {
+      url: 'selectlist',
+      text: 'Select Lists',
+      icon: 'fa fa-square-caret-down'
+    },
+    {
       url: 'tables',
       text: 'Tables',
       icon: 'fa fa-table'
@@ -43,6 +48,16 @@ export class App {
       url: 'sidebar',
       text: 'Sidebar',
       icon: 'fa fa-elementor'
+    },
+    {
+      url: 'contentheader',
+      text: 'Content Header',
+      icon: 'fa fa-heading'
+    },
+    {
+      url: 'pagetitle',
+      text: 'Page Title Service',
+      icon: 'fa fa-signature'
     }
   ];
 

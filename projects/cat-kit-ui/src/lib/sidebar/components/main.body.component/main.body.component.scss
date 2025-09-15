@@ -1,3 +1,5 @@
+@import "../../../assets/variables";
+
 :host {
     flex: 1;
     display: flex;
@@ -9,7 +11,7 @@
         align-items: center;
         background-color: #5353fe;
         padding: 16px;
-        color: #fff;
+        color: $text-color-light;
         height: 25px;
     }
 
@@ -17,7 +19,7 @@
         padding: 16px;
         overflow-y: hidden;
         flex: 1;
-        background-color: #ecf0f1;
+        background-color: $text-color-light;
         height: calc(100vh - 25px);
     }
 }
