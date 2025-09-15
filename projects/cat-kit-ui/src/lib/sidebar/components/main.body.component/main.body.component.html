@@ -1,7 +1,5 @@
 <div class="main" [ngClass]="{'mobile': sidenavLayoutService.isMobile}">
     <div class="header">
-        <button class="button" *ngIf="sidenavLayoutService.isMobile"
-            (click)="sidenavLayoutService.toggleSidenav()">☰</button>
         <h3>{{title}}</h3>
     </div>
     <div class="content">

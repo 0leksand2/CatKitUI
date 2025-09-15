@@ -8,6 +8,7 @@
     transform: translateX(0);
     transition: transform 0.3s ease;
     box-shadow: 1px 0px 3px 1px #1a6ebc;
+
     &.open {
         transform: translateX(0);
     }
@@ -24,6 +25,51 @@
         position: absolute;
         right: 5px;
         top: 5px;
+    }
+
+    .toggle {
+        position: absolute;
+        right: 0;
+        top: 25px;
+        transform: translate(100%, 0px);
+        padding: 10px 10px;
+        background-color: #1a6ebc;
+        cursor: pointer;
+        
+        border-radius: 0 11px 11px 0;
+        .toggle-btn {
+            color: white;
+        }
+    }
+
+    .toggle.open{
+        border-radius: 0px 8px 8px 0px;
+    }
+
+    .toggle::after {
+        content: "";
+        position: absolute;
+        top: 0;
+        width: 0;
+        height: 0;
+        border-right: 32px solid transparent;
+        border-bottom: 30px solid #1a6ebc;
+        top: 0;
+        left: 0;
+        transform: translate(0, -86%);
+        border-radius: 0 0 10px 0;
+    }
+
+    .toggle::before {
+        content: "";
+        position: absolute;
+        width: 0;
+        height: 0;
+        border-right: 32px solid transparent;
+        border-top: 30px solid #1a6ebc;
+        top: 88%;
+        left: 0;
+        border-radius: 0 10px 10px 0;
     }
 }
 

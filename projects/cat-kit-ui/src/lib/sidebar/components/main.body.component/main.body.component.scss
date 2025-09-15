@@ -7,10 +7,13 @@
     .header {
         display: flex;
         align-items: center;
-        background-color: #1a6ebc;
+        background-color: red;
         padding: 16px;
         color: #fff;
         height: 25px;
+        h3{
+            margin-left: 1.5rem;
+        }
         .menu-btn {
             background: none;
             border: none;
