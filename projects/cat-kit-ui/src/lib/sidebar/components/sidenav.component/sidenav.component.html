@@ -1,6 +1,11 @@
-<div class="toggle" *ngIf="sidenavLayoutService.isMobile" [ngClass]="{'open' : sidenavLayoutService.isSidenavOpen}" (click)="sidenavLayoutService.toggleSidenav()">
+<div class="toggle" *ngIf="sidenavLayoutService.isMobile" [ngClass]="{'open' : sidenavLayoutService.isSidenavOpen}"
+    (click)="sidenavLayoutService.toggleSidenav()">
     <span class="toggle-btn" *ngIf="!sidenavLayoutService.isSidenavOpen">☰</span>
     <span class="toggle-btn" *ngIf="sidenavLayoutService.isSidenavOpen">✕</span>
 </div>
-
+@if (!sidenavLayoutService.isMobile) {
+<div class="header">
+    <h3>{{sidenavLayoutService.title}}</h3>
+</div>
+}
 <ng-content></ng-content>

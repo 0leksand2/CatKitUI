@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { SidenavLayoutService } from '../../services/sidebar.service';
 
 
@@ -8,6 +8,13 @@ import { SidenavLayoutService } from '../../services/sidebar.service';
   styleUrl: './sidenav.layout.component.scss',
   standalone: false
 })
-export class KitSidenavLayoutComponent {
+export class KitSidenavLayoutComponent implements OnInit {
+  @Input() title: string = '';
   constructor(public sidenavLayoutService: SidenavLayoutService) { }
+
+  ngOnInit(): void {
+    this.sidenavLayoutService.title = this.title;
+  }
+
+
 }

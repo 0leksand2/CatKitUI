@@ -3,11 +3,11 @@
 :host {
     width: 250px;
     height: 100%;
-    background-color: #1a6ebc;
+    background-color: $primary-color;
     flex-shrink: 0;
     transform: translateX(0);
     transition: transform 0.3s ease;
-    box-shadow: 1px 0px 3px 1px #1a6ebc;
+    box-shadow: 1px 0px 3px 1px $primary-color;
 
     &.open {
         transform: translateX(0);
@@ -15,6 +15,14 @@
 
     &.mobile:not(.open) {
         transform: translateX(-100%);
+    }
+
+    .header{
+        width: 100%;
+        text-align: center;
+        color: white;
+        padding-top: 20px;
+        padding-bottom: 10px;
     }
 
     .close-btn {
@@ -33,7 +41,7 @@
         top: 25px;
         transform: translate(100%, 0px);
         padding: 10px 10px;
-        background-color: #1a6ebc;
+        background-color: $primary-color;
         cursor: pointer;
         
         border-radius: 0 11px 11px 0;
@@ -53,7 +61,7 @@
         width: 0;
         height: 0;
         border-right: 32px solid transparent;
-        border-bottom: 30px solid #1a6ebc;
+        border-bottom: 30px solid $primary-color;
         top: 0;
         left: 0;
         transform: translate(0, -86%);
@@ -66,7 +74,7 @@
         width: 0;
         height: 0;
         border-right: 32px solid transparent;
-        border-top: 30px solid #1a6ebc;
+        border-top: 30px solid $primary-color;
         top: 88%;
         left: 0;
         border-radius: 0 10px 10px 0;

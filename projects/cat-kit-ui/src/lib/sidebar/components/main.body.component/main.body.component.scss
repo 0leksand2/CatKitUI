@@ -7,21 +7,10 @@
     .header {
         display: flex;
         align-items: center;
-        background-color: red;
+        background-color: #5353fe;
         padding: 16px;
         color: #fff;
         height: 25px;
-        h3{
-            margin-left: 1.5rem;
-        }
-        .menu-btn {
-            background: none;
-            border: none;
-            font-size: 24px;
-            margin-right: 16px;
-            cursor: pointer;
-            color: #fff;
-        }
     }
 
     .content {
@@ -37,5 +26,9 @@
     :host {
         flex: 1;
         width: 100%; // full width always  
+    }
+
+    .header h3 {
+        margin-left: 1.5rem;
     }
 }

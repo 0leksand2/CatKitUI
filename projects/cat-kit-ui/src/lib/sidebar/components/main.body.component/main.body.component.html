@@ -1,7 +1,9 @@
 <div class="main" [ngClass]="{'mobile': sidenavLayoutService.isMobile}">
+    @if (sidenavLayoutService.isMobile) {
     <div class="header">
-        <h3>{{title}}</h3>
+        <h3>{{sidenavLayoutService.title}}</h3>
     </div>
+    }
     <div class="content">
         <ng-content></ng-content>
     </div>

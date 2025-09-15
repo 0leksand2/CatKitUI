@@ -1,0 +1,19 @@
+@import "../../projects/cat-kit-ui/src/lib/assets/variables";
+
+.list-item{
+    text-decoration: none;
+    color: #eae7e7;
+}
+.list-item-body{
+    width: 100%;
+    padding-top: 6px;
+    padding-bottom: 3px;
+    padding-left: 2px;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.list-item-body:hover{
+    background-color: lighten($primary-color, 20%);
+    color: darken(#eae7e7, 10%);
+}

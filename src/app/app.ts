@@ -22,7 +22,27 @@ export class App {
     {
       url: 'buttons',
       text: 'Buttons',
-      icon: 'fa fa-home'
+      icon: 'fa fa-circle-dot'
+    },
+    {
+      url: 'tables',
+      text: 'Tables',
+      icon: 'fa fa-table'
+    },
+    {
+      url: 'notifications',
+      text: 'Notifications',
+      icon: 'fa fa-bell'
+    },
+    {
+      url: 'modals',
+      text: 'Modal',
+      icon: 'fa fa-message'
+    },
+    {
+      url: 'sidebar',
+      text: 'Sidebar',
+      icon: 'fa fa-elementor'
     }
   ];
 
