@@ -1,13 +1,16 @@
 import { Component, signal } from '@angular/core';
-
+import { Title } from '@angular/platform-browser';
+import { ContentHeaderModule } from 'cat-kit-ui';
 
 @Component({
   selector: 'app-buttons',
-  imports: [],
+  imports: [ContentHeaderModule],
   templateUrl: './buttons.component.html',
   //styleUrl: './app.scss',
   standalone: true
 })
 export class ButtonsComponent {
-  protected readonly title = signal('Buttons | CatKitUI');
+  constructor(private titleService: Title){
+    this.titleService.setTitle('Buttons | CatKitUI')
+  }
 }

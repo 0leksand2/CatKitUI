@@ -53,11 +53,6 @@ export class App {
       url: 'contentheader',
       text: 'Content Header',
       icon: 'fa fa-heading'
-    },
-    {
-      url: 'pagetitle',
-      text: 'Page Title Service',
-      icon: 'fa fa-signature'
     }
   ];
 
