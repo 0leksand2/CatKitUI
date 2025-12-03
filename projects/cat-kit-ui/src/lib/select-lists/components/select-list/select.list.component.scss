@@ -68,6 +68,38 @@
     }
   }
 
+  .clear {
+    width: 20px;
+    top: 15px;
+    position: absolute;
+    right: 32px;
+    cursor: pointer;
+    margin-left: 8px;
+    color: #718096;
+    transition: transform 0.2s ease-in-out;
+    align-items: center;
+  }
+
+  .search-box-container {
+    display: none;
+    position: absolute;
+    top: 5px;
+    left: 5px;
+
+    .search-box {
+      height: 35px;
+      border: none;
+
+      &:focus {
+        outline: none;
+      }
+    }
+  }
+
+  &.open .search-box-container {
+    display: block;
+  }
+
   &.open .select-trigger {
     border-color: #3182ce;
     box-shadow: 0 0 0 3px rgba(49, 130, 206, 0.1);

@@ -1,1 +1,14 @@
-test
+<div>
+    <kit-content-header [title]="'Select lists'" [underline]="true" [fontSize]="'1.5rem'"></kit-content-header>
+    <kit-select-list [options]="options" [valueOption]="'value'" [nameOption]="'label'" [(selectedValue)]="selectedValue" 
+                     [placeholder]="'Select an option'" >
+    </kit-select-list>
+    <p *ngIf="selectedValue">Selected Value: {{ selectedValue.label }}</p>
+</div>
+<div>
+    <kit-content-header [title]="'Searchable Select lists'" [underline]="true" [fontSize]="'1.5rem'"></kit-content-header>
+    <kit-select-list [options]="options" [valueOption]="'value'" [searchable]="true" [nameOption]="'label'" [(selectedValue)]="selectedValue1" 
+                     [placeholder]="'Select an option'" [searchPlaceholder]="'Type to search...'" >
+    </kit-select-list>
+    <p *ngIf="selectedValue1">Selected Value: {{ selectedValue1.label }}</p>
+</div>

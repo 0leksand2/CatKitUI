@@ -1,9 +1,8 @@
-<div class="custom-select" [class.disabled]="disabled" [class.open]="isOpen" [style.width]="width">
+<div class="custom-select" [class.disabled]="disabled" [class.open]="isOpen" [style.width]="width" #bodyref>
     <div class="select-trigger" (click)="toggleDropdown()" #trigger>
         <span class="selected-value" [class.placeholder]="!selectedOption">
             {{ selectedOption?.[nameOption] || placeholder }}
         </span>
-
         <div class="arrow" [class.rotated]="isOpen">
             <svg width="12" height="8" viewBox="0 0 12 8" fill="none">
                 <path d="M1 1.5L6 6.5L11 1.5" stroke="currentColor" stroke-width="2" stroke-linecap="round"
@@ -11,10 +10,15 @@
             </svg>
         </div>
     </div>
-
+    <div *ngIf="searchable" class="search-box-container">
+        <input type="text" class="search-box" [placeholder]="searchPlaceholder" #searchref/>
+    </div>
+    <div class="clear" *ngIf="showClear && selectedValue && selectedValue != null" (click)="clearSelection()">
+        <i class="fa fa-xmark"></i>
+    </div>
     <div class="dropdown" [class.show]="isOpen" #dropdown>
         <div class="options-container">
-            <div *ngFor="let option of options; trackBy: trackByFn" class="option"
+            <div *ngFor="let option of visibleOptions; trackBy: trackByFn" class="option"
                 [class.selected]="option[valueOption] === selectedValue" [class.disabled]="option.disabled"
                 (click)="selectOption(option)">
                 {{ option[nameOption] }}

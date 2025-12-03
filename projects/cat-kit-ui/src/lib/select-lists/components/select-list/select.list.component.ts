@@ -1,6 +1,7 @@
 // custom-select.component.ts
-import { Component, Input, Output, EventEmitter, forwardRef, OnInit, ElementRef, ViewChild, HostListener } from '@angular/core';
+import { Component, Input, Output, EventEmitter, forwardRef, OnInit, ElementRef, ViewChild, HostListener, viewChild } from '@angular/core';
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
+import { fromEvent, debounce, map, debounceTime, distinctUntilChanged } from 'rxjs';
 
 @Component({
     selector: 'kit-select-list',
@@ -17,20 +18,27 @@ import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 })
 export class KitSelectListComponent implements ControlValueAccessor, OnInit {
     @Input() options: any[] = [];
+    @Input() visibleOptions: any[] = [];
     @Input() nameOption: string = 'name';
     @Input() valueOption: string = 'value';
     @Input() disabledOption: string = 'disabled';
     @Input() placeholder: string = 'Select an option';
     @Input() disabled: boolean = false;
     @Input() searchable: boolean = false;
-
+    @Input() showClear: boolean = true;
+    @Input() remoteLoading: boolean = false;
+    @Input() pageSize: number = 20;
+    @Input() totalOptions: number = 0
     @Input() selectedValue: any = null;
+    @Input() searchPlaceholder: string = 'Search...';
+
     @Output() selectedValueChange = new EventEmitter<any | null>();
 
     @Input() width: string = '200px';
     
     @ViewChild('trigger') triggerRef!: ElementRef;
     @ViewChild('dropdown') dropdownRef!: ElementRef;
+    @ViewChild('searchref') searchRef!: ElementRef;
 
     selectedOption: any | null = null;
     isOpen: boolean = false;
@@ -40,6 +48,7 @@ export class KitSelectListComponent implements ControlValueAccessor, OnInit {
     private onTouched = () => { };
 
     ngOnInit() {
+        this.visibleOptions = structuredClone(this.options)
         this.updateSelectedOption();
     }
 
@@ -61,10 +70,38 @@ export class KitSelectListComponent implements ControlValueAccessor, OnInit {
         this.disabled = isDisabled;
     }
 
+    
     toggleDropdown(): void {
         if (this.disabled) return;
 
         this.isOpen = !this.isOpen;
+
+        if(this.isOpen && this.searchable) {
+            setTimeout(() => {
+                this.searchRef.nativeElement.focus();
+            }, 100);
+
+            fromEvent(this.searchRef.nativeElement, 'input')
+                .pipe(
+                    map((event:any) => event.target.value),
+                    debounceTime(250),
+                    distinctUntilChanged()
+                ).subscribe((value) => {
+                    const searchOption = value.toLowerCase();
+                    this.visibleOptions = this.options.filter(option => 
+                        option[this.nameOption].toLowerCase().includes(searchOption)
+                    );
+                })
+        }
+    }
+
+    clearSelection(): void {
+        if(this.disabled) return;
+        this.selectedOption = null;
+
+        this.onChange(null);
+        this.selectedValueChange.emit(null);
+        this.isOpen = false;
     }
 
     selectOption(option: any): void {
