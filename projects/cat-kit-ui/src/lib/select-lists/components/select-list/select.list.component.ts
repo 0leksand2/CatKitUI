@@ -3,19 +3,19 @@ import { Component, Input, Output, EventEmitter, forwardRef, OnInit, ElementRef,
 import { ControlValueAccessor, NG_VALUE_ACCESSOR } from '@angular/forms';
 
 @Component({
-    selector: 'kit-dropdown',
+    selector: 'kit-select-list',
     standalone: false,
     providers: [
         {
             provide: NG_VALUE_ACCESSOR,
-            useExisting: forwardRef(() => KitDropdownComponent),
+            useExisting: forwardRef(() => KitSelectListComponent),
             multi: true
         }
     ],
-    templateUrl: './dropdown.component.html',
-    styleUrls: ['./dropdown.component.scss']
+    templateUrl: './select.list.component.html',
+    styleUrls: ['./select.list.component.scss']
 })
-export class KitDropdownComponent implements ControlValueAccessor, OnInit {
+export class KitSelectListComponent implements ControlValueAccessor, OnInit {
     @Input() options: any[] = [];
     @Input() nameOption: string = 'name';
     @Input() valueOption: string = 'value';

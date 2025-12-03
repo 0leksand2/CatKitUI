@@ -25,7 +25,12 @@ export class App {
       icon: 'fa fa-circle-dot'
     },
     {
-      url: 'selectlist',
+      url: 'contentheaders',
+      text: 'Content Headers',
+      icon: 'fa fa-heading'
+    },
+    {
+      url: 'selectlists',
       text: 'Select Lists',
       icon: 'fa fa-square-caret-down'
     },
@@ -48,11 +53,6 @@ export class App {
       url: 'sidebar',
       text: 'Sidebar',
       icon: 'fa fa-elementor'
-    },
-    {
-      url: 'contentheader',
-      text: 'Content Header',
-      icon: 'fa fa-heading'
     }
   ];
 

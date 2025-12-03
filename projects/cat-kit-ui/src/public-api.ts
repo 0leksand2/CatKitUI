@@ -11,7 +11,8 @@ export * from './lib/sidebar/sidebar.module';
 
 export * from './lib/content.header/components/content.header/content.header.component'
 export * from './lib/content.header/content.header.module';
-// export * from './lib/dropdown/dropdown.module';
+export * from './lib/select-lists/components/select-list/select.list.component';
+export * from './lib/select-lists/select.list.module';
 // export * from './lib/modal/modal.module';
 // export * from './lib/table/table.module';
 // 

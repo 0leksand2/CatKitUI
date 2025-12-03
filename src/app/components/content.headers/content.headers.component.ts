@@ -3,13 +3,13 @@ import { Title } from '@angular/platform-browser';
 import { ContentHeaderModule } from 'cat-kit-ui';
 
 @Component({
-  selector: 'app-home',
+  selector: 'app-content-headers',
   imports: [ContentHeaderModule],
-  templateUrl: './home.component.html',
+  templateUrl: './content.headers.component.html',
   standalone: true
 })
-export class HomeComponent {
+export class ContentHeadersComponent {
   constructor(private titleService: Title) {
-    this.titleService.setTitle('Home | CatKitUI');
+    this.titleService.setTitle('Content Headers | CatKitUI');
   }
 }

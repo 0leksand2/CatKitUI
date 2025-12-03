@@ -10,6 +10,6 @@ export class ContentHeaderComponent {
   @Input() title: string = '';
   @Input() underline: boolean = true;
   @Input() fontSize: number | string = 32;
-  
-  
+  @Input() underlineColor: string = '#b1b1b1';
+  @Input() textColor: string = '#000000';
 }

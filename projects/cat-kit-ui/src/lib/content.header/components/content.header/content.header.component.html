@@ -1,4 +1,7 @@
 <div class="title" [ngClass]="{'underlined' : underline}"
-    [ngStyle]="{'font-size': typeof(fontSize) == 'number' ? fontSize + 'px' : fontSize}">
+    [ngStyle]="{'font-size': typeof(fontSize) == 'number' ? fontSize + 'px' : fontSize,
+        'border-bottom-color': underline ? underlineColor : 'transparent',
+        'color': textColor
+    }">
     {{title}}
 </div>
