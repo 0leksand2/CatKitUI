@@ -7,7 +7,7 @@
         </tr>
     </thead>
     <tbody>
-        <tr *ngFor="let row of dataSource">
+        <tr *ngFor="let row of visibleItems">
             <ng-container *ngFor="let col of columns">
                 <td [ngStyle]="{'width.px': col.width}">
                     <ng-container *ngIf="col.template; else defaultCell">

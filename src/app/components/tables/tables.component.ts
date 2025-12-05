@@ -17,5 +17,6 @@ export class TablesComponent {
     ) {
         this.titleService.setTitle('Tables | CatKitUI');
         this.staticData10Items = this.tableDataService.getStaticTableData10Items();
+        this.staticData32Items = this.tableDataService.getStaticTableData32Items();
     }
 }

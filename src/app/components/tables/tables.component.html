@@ -1,9 +1,20 @@
 <div>
     <kit-content-header [title]="'Tables'" [underline]="true" [fontSize]="'1.5rem'"></kit-content-header>
 </div>
-<div>
+<!-- <div>
     <kit-content-header [title]="'Basic Table'" [underline]="true" [fontSize]="'1rem'"></kit-content-header>
     <kit-table [dataSource]="staticData10Items" >
+        <kit-column [caption]="'ID'" [field]="'id'" [captionPosition]="'left'"></kit-column>
+        <kit-column [caption]="'Name'" [field]="'name'" [captionPosition]="'left'"></kit-column>
+        <kit-column [caption]="'Email'" [field]="'email'" [captionPosition]="'left'"></kit-column>
+        <kit-column [caption]="'Country Code'" [field]="'countryCode'" [captionPosition]="'left'"></kit-column>
+    </kit-table>
+</div> -->
+
+<div>
+    <kit-content-header [title]="'Paging tables'" [underline]="true" [fontSize]="'1rem'"></kit-content-header>
+    <kit-table [dataSource]="staticData32Items" [showPager]="true" [pageSize]="10" [pageSizes]="[5,10,25]"
+        [totalCount]="staticData32Items.length">
         <kit-column [caption]="'ID'" [field]="'id'" [captionPosition]="'left'"></kit-column>
         <kit-column [caption]="'Name'" [field]="'name'" [captionPosition]="'left'"></kit-column>
         <kit-column [caption]="'Email'" [field]="'email'" [captionPosition]="'left'"></kit-column>

@@ -37,10 +37,17 @@ export class KitTableComponent<T = any> implements OnInit {
         if (this.remoteOperations) {
             const res = await this.loadData(properties.page, properties.pageSize)
             this.dataSource = res.data;
+            this.visibleItems = this.dataSource;
             this.totalCount = res.totalCount;
             this.pageSize = properties.pageSize;
             this.currentPage = properties.page;
             this.pages = Math.ceil(res.totalCount / properties.pageSize);
+        }else{
+            this.pages = Math.ceil(this.dataSource.length / properties.pageSize);
+            this.currentPage = properties.page;
+            this.pageSize = properties.pageSize;
+            const startIndex = (properties.page - 1) * properties.pageSize;
+            this.visibleItems = this.dataSource.slice(startIndex, startIndex + properties.pageSize);
         }
     }
 
