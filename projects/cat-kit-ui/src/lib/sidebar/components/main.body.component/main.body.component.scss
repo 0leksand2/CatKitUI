@@ -17,7 +17,7 @@
 
     .content {
         padding: 16px;
-        overflow-y: hidden;
+        overflow-y: auto;
         flex: 1;
         background-color: $text-color-light;
         height: calc(100vh - 25px);

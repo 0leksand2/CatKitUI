@@ -1,12 +1,31 @@
 <div class="pager-container">
     <div class="pages">
         <span>Page: </span>
-        <button *ngFor="let i of pages | enumerate" class="button"
-            [ngClass]="{'active': (i + 1) == currentPage}" (click)="pageChanged(i + 1)">{{i + 1}}</button>
+        <span class="buttons-container" *ngIf="pages <= 5">
+            <button *ngFor="let i of pages | enumerate" class="paging-control"
+                [ngClass]="{'active': (i + 1) == currentPage}" (click)="pageChanged(i + 1)">{{i + 1}}</button>
+        </span>
+        <span class="buttons-container" *ngIf="pages > 5">
+            <ng-container *ngIf="currentPage > 1">
+                <button class="paging-control" (click)="pageChanged(1)"><<</button>
+                <button class="paging-control" (click)="pageChanged(currentPage - 1)"><</button>
+            </ng-container>
+            <button class="paging-control active">{{currentPage}}</button>
+            <ng-container *ngIf="currentPage < pages">
+                <button class="paging-control" (click)="pageChanged(currentPage + 1)">></button>
+                <button class="paging-control" (click)="pageChanged(pages)">>></button>
+            </ng-container>
+            <!-- <button *ngFor="let i of pages | enumerate" class="paging-control"
+                [ngClass]="{'active': (i + 1) == currentPage}" (click)="pageChanged(i + 1)">{{i + 1}}</button> -->
+        </span>
+
     </div>
     <div class="page-sizes">
-        <span>Page Size: </span><button *ngFor="let pageSizeBtn of pageSizes" class="button"
-            [ngClass]="{'active': pageSizeBtn == pageSize}"
-            (click)="pageSizeChanged(pageSizeBtn)">{{pageSizeBtn}}</button>
+        <span>Page Size: </span>
+        <span  class="buttons-container">
+            <button *ngFor="let pageSizeBtn of pageSizes" class="paging-control"
+                [ngClass]="{'active': pageSizeBtn == pageSize}"
+                (click)="pageSizeChanged(pageSizeBtn)">{{pageSizeBtn}}</button>
+        </span>
     </div>
 </div>

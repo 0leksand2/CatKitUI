@@ -3,3 +3,20 @@
     display: flex;
     justify-content: space-between;
 }
+
+.paging-control{
+    border: none;
+    background-color: transparent;
+    padding: 8px 12px;
+    font-size: 14px;
+}
+.paging-control.active{
+    font-weight: bold;
+}
+.paging-control:hover{
+    cursor: pointer;
+    background-color: #f0f0f0;
+}
+.buttons-container > .paging-control:not(:first-child){
+    border-left: 1px solid #c9c9c9 !important;
+}

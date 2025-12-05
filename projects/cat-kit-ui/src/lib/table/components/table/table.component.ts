@@ -42,12 +42,15 @@ export class KitTableComponent<T = any> implements OnInit {
             this.pageSize = properties.pageSize;
             this.currentPage = properties.page;
             this.pages = Math.ceil(res.totalCount / properties.pageSize);
-        }else{
+        }else if(this.showPager){
             this.pages = Math.ceil(this.dataSource.length / properties.pageSize);
             this.currentPage = properties.page;
             this.pageSize = properties.pageSize;
             const startIndex = (properties.page - 1) * properties.pageSize;
             this.visibleItems = this.dataSource.slice(startIndex, startIndex + properties.pageSize);
+        }else{
+            this.visibleItems = this.dataSource;
+            this.currentPage = properties.page;
         }
     }
 
