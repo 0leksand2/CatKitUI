@@ -1,0 +1,12 @@
+<div>
+    <kit-content-header [title]="'Tables'" [underline]="true" [fontSize]="'1.5rem'"></kit-content-header>
+</div>
+<div>
+    <kit-content-header [title]="'Basic Table'" [underline]="true" [fontSize]="'1rem'"></kit-content-header>
+    <kit-table [dataSource]="staticData10Items" >
+        <kit-column [caption]="'ID'" [field]="'id'"></kit-column>
+        <kit-column [caption]="'Name'" [field]="'name'"></kit-column>
+        <kit-column [caption]="'Email'" [field]="'email'"></kit-column>
+        <kit-column [caption]="'Country Code'" [field]="'countryCode'"></kit-column>
+    </kit-table>
+</div>
