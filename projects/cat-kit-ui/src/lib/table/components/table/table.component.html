@@ -1,7 +1,7 @@
 <table class="cs-table">
     <thead>
         <tr>
-            <th *ngFor="let col of columns" class="header-cell">
+            <th *ngFor="let col of columns" class="header-cell" [ngStyle]="{'text-align': col.captionPosition}">
                 {{ col.caption }}
             </th>
         </tr>
