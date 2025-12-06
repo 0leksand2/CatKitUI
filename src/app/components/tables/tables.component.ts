@@ -12,11 +12,16 @@ import { TableDataService } from '../../services/table.data.service';
 export class TablesComponent {
     staticData10Items: any[] = [];
     staticData32Items: any[] = [];
+    loadDataEvent = this.loadData.bind(this);
     constructor(private titleService: Title,
         private tableDataService: TableDataService
     ) {
         this.titleService.setTitle('Tables | CatKitUI');
         this.staticData10Items = this.tableDataService.getStaticTableData10Items();
         this.staticData32Items = this.tableDataService.getStaticTableData32Items();
+    }
+
+    loadData($event: any){
+        return this.tableDataService.remoteLoadingTableData($event.page, $event.pageSize);
     }
 }

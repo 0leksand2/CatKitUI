@@ -128,4 +128,15 @@ export class TableDataService {
 
         ];
     }
+
+    remoteLoadingTableData(page: number, pageSize: number): Promise<{ data: User[], totalCount: number }> {
+        return new Promise((resolve) => {
+            const allData = this.getStaticTableData32Items();
+            const startIndex = (page - 1) * pageSize;
+            const pagedData = allData.slice(startIndex, startIndex + pageSize);
+            setTimeout(() => {
+                resolve({ data: pagedData, totalCount: allData.length });
+            }, 200); // Simulate network delay
+        });
+    }
 }

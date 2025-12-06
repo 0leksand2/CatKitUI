@@ -15,8 +15,6 @@
                 <button class="paging-control" (click)="pageChanged(currentPage + 1)">></button>
                 <button class="paging-control" (click)="pageChanged(pages)">>></button>
             </ng-container>
-            <!-- <button *ngFor="let i of pages | enumerate" class="paging-control"
-                [ngClass]="{'active': (i + 1) == currentPage}" (click)="pageChanged(i + 1)">{{i + 1}}</button> -->
         </span>
 
     </div>

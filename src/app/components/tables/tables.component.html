@@ -21,3 +21,14 @@
         <kit-column [caption]="'Country Code'" [field]="'countryCode'" [captionPosition]="'left'"></kit-column>
     </kit-table>
 </div>
+
+<div>
+    <kit-content-header [title]="'Remote loading'" [underline]="true" [fontSize]="'1rem'"></kit-content-header>
+    <kit-table [dataSource]="staticData32Items" [showPager]="true" [pageSize]="10" [pageSizes]="[5,10,25]"
+        [totalCount]="staticData32Items.length" [remoteOperations]="true" [loadData]="loadDataEvent">
+        <kit-column [caption]="'ID'" [field]="'id'" [captionPosition]="'left'"></kit-column>
+        <kit-column [caption]="'Name'" [field]="'name'" [captionPosition]="'left'"></kit-column>
+        <kit-column [caption]="'Email'" [field]="'email'" [captionPosition]="'left'"></kit-column>
+        <kit-column [caption]="'Country Code'" [field]="'countryCode'" [captionPosition]="'left'"></kit-column>
+    </kit-table>
+</div>

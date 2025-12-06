@@ -35,7 +35,11 @@ export class KitTableComponent<T = any> implements OnInit {
 
     protected async paramsChanged(properties: TableOptions) {
         if (this.remoteOperations) {
-            const res = await this.loadData(properties.page, properties.pageSize)
+            const tableOptions: TableOptions = { 
+                page: properties.page,
+                pageSize: properties.pageSize || this.pageSize
+            }
+            const res = await this.loadData(tableOptions)
             this.dataSource = res.data;
             this.visibleItems = this.dataSource;
             this.totalCount = res.totalCount;
