@@ -22,3 +22,7 @@ export * from './lib/table/components/pager/pager.component';
 export * from './lib/table/components/table/table.component';
 export * from './lib/table/pipes/enumerate.pipe';
 export * from './lib/table/table.module';
+
+/* Spinner */
+export * from './lib/spinner/components/spinner.component';
+export * from './lib/spinner/spinner.module';

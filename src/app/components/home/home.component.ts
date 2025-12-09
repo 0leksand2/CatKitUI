@@ -1,10 +1,10 @@
 import { Component } from '@angular/core';
 import { Title } from '@angular/platform-browser';
-import { ContentHeaderModule } from 'cat-kit-ui';
+import { ContentHeaderModule, SpinnerModule } from 'cat-kit-ui';
 
 @Component({
   selector: 'app-home',
-  imports: [ContentHeaderModule],
+  imports: [ContentHeaderModule, SpinnerModule],
   templateUrl: './home.component.html',
   standalone: true
 })

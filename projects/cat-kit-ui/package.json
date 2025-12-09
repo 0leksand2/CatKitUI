@@ -11,6 +11,7 @@
   "sideEffects": false,
   "assets": [
     "src/lib/assets/styles.scss",
+    "src/lib/assets/spinner.png",
      "src/lib/assets/_variables.scss"
   ]
 }
