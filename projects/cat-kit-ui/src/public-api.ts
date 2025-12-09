@@ -26,3 +26,9 @@ export * from './lib/table/table.module';
 /* Spinner */
 export * from './lib/spinner/components/spinner.component';
 export * from './lib/spinner/spinner.module';
+
+/* Notifications */
+export * from './lib/notification/components/notification/notification.component';
+export * from './lib/notification/models/notification.type';
+export * from './lib/notification/services/notification.service';
+export * from './lib/notification/notification.module';

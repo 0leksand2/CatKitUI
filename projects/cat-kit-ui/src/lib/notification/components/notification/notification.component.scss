@@ -1,0 +1,48 @@
+.notification-body{
+    border-radius: 7px;
+    padding: 10px 16px;
+    min-width: 300px;
+    max-width: 340px;
+    position: relative;
+    .notification-header{
+        width: 80%;
+        max-width: 80px;
+        font-size: 1rem;
+        padding: 6px 0;
+    }
+
+    .notification-text{
+        width: 100%;
+        max-width: 100%;
+        font-size: 0.9rem;
+        padding: 4px 0;
+    }
+
+    .close-btn{
+        position: absolute;
+        padding: 2px;
+        top: 4px;
+        right: 4px;
+        cursor: pointer;
+    }
+}
+
+.notification-body.success{
+    background-color: #1be85c;
+    color: #ffffff;
+}
+
+.notification-body.info{
+    background-color: #1599f0;
+    color: #ffffff;
+}
+
+.notification-body.warning{
+    background-color: #f78400;
+    color: #ffffff;
+}
+
+.notification-body.error{
+    background-color: #ed2020;
+    color: #ffffff;
+}
