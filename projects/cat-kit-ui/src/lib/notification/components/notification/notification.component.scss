@@ -28,21 +28,25 @@
 }
 
 .notification-body.success{
-    background-color: #1be85c;
+    background-color: #009e00;
     color: #ffffff;
+    box-shadow: 0px 0px 10px 1px #009e00;
 }
 
 .notification-body.info{
-    background-color: #1599f0;
+    background-color: #1a6ebc;
     color: #ffffff;
+    box-shadow: 0px 0px 10px 1px #1a6ebc;
 }
 
 .notification-body.warning{
     background-color: #f78400;
     color: #ffffff;
+    box-shadow: 0px 0px 10px 1px #f78400;
 }
 
 .notification-body.error{
     background-color: #ed2020;
     color: #ffffff;
+    box-shadow: 0px 0px 10px 1px #ed2020;
 }

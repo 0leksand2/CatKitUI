@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, OnInit } from "@angular/core";
 import { Subject } from "rxjs";
 import { NotificationType } from "../../models/notification.type";
 
@@ -8,7 +8,7 @@ import { NotificationType } from "../../models/notification.type";
     templateUrl: './notification.component.html',
     styleUrl: './notification.component.scss'
 })
-export class NotificationsComponent {
+export class NotificationsComponent implements OnInit {
     onClose$ = new Subject<any>(); // Emit result
     
     header: string = 'Notification';
@@ -17,13 +17,15 @@ export class NotificationsComponent {
     constructor() {
 
     }
-
-    closeWindow(value: boolean) {
-        this.close(value);
+    ngOnInit(): void {
     }
 
-    close(result?: any) {
-        this.onClose$.next(result);
+    closeWindow() {
+        this.close();
+    }
+
+    close() {
+        this.onClose$.next(null);
         this.onClose$.complete();
     }
 }
