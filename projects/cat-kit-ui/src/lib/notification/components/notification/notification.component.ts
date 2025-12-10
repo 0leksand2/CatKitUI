@@ -14,18 +14,25 @@ export class NotificationsComponent implements OnInit {
     header: string = 'Notification';
     message!: string;
     type!: NotificationType;
+    opacity:number = 0;
     constructor() {
 
     }
     ngOnInit(): void {
+        setTimeout(() => {
+            this.opacity = 1;
+        }, 10);
     }
 
     closeWindow() {
-        this.close();
+        this.opacity = 0;
+        setTimeout(() => {
+            this.close();
+        }, 300);
     }
 
     close() {
-        this.onClose$.next(null);
+        this.onClose$.next(true);
         this.onClose$.complete();
     }
 }

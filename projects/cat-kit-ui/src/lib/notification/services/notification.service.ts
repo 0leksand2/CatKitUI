@@ -79,9 +79,14 @@ export class KitNotificationService {
         modalRef.instance.type = type;
         modalRef.instance.header = title;
         modalRef.instance.message = message;
-
         KitNotificationService.Popups.push({ overlayRef: overlayRef, bornAt: new Date(), position: popupPosition });
 
+        modalRef.onDestroy(() => {
+            const index = KitNotificationService.Popups.findIndex(popup => popup.overlayRef === overlayRef);
+            if (index !== -1) {
+                KitNotificationService.Popups.splice(index, 1);
+            }
+        });
         return firstValueFrom(modalRef.instance.onClose$);
     }
 }
