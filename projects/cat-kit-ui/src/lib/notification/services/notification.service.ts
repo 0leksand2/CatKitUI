@@ -11,26 +11,20 @@ export class KitNotificationService {
 
     private overlay = inject(Overlay);
     private injector = inject(Injector);
+
     private projectedHeight: number = 120;
+    private maxElements = Math.floor(window.innerHeight / this.projectedHeight) - 1;
+    private static Popups: any[]= [];
 
-    private static Popups: Queue<{ overlayRef: any, bornAt: Date }> = new Queue();
-
-    constructor(){
+    constructor() {
         setInterval(() => {
-            if (KitNotificationService.Popups.size() > 1) {
-                const el = KitNotificationService.Popups.dequeue();
-                el.overlayRef.dispose();
-            }
-
-            const popups = KitNotificationService.Popups.list();
-            for (let i = 0; i < popups.length; i++) {
-                const timestamp1 = new Date().getTime(); 
-                const timestamp2 = popups[i].bornAt.getTime(); 
+            for (let i = 0; i < KitNotificationService.Popups.length; i++) {
+                const timestamp1 = new Date().getTime();
+                const timestamp2 = KitNotificationService.Popups[i].bornAt.getTime();
                 const differenceInSeconds = (timestamp1 - timestamp2) / 1000;
 
                 if (differenceInSeconds > 5) {
-                    popups[i].overlayRef.dispose();
-                    KitNotificationService.Popups.dequeue();
+                    KitNotificationService.Popups[i].overlayRef.dispose();
                 }
             }
         }, 100);
@@ -42,26 +36,51 @@ export class KitNotificationService {
 
     }
 
+    //if popups exceed maxelements, replace oldest with new one
     async open<T = any>(type: NotificationType, title: string, message: string): Promise<T | undefined> {
+        let highestPos = KitNotificationService.Popups[0]?.position || 0;
+        let popupPosition = 0;
+        
+        KitNotificationService.Popups.forEach((popup) => {
+            if (popup.position >= highestPos) {
+                highestPos = popup.position;
+            }
+        });
 
+        popupPosition = highestPos == 0 && !(KitNotificationService.Popups.length > 0) ? 0 : highestPos + 1;
+        
+        if(popupPosition >= this.maxElements){
+            let oldest = KitNotificationService.Popups[0]?.bornAt ?? new Date();
+            let oldestIndex = 0;
+            KitNotificationService.Popups.forEach((element, index) => {
+                if(element.bornAt < oldest){
+                    oldest = element;
+                    oldestIndex = index;
+                }
+            });
+            popupPosition = KitNotificationService.Popups[oldestIndex].position;
+            KitNotificationService.Popups[oldestIndex].overlayRef.dispose();
+            KitNotificationService.Popups.splice(oldestIndex, 1);
+        }
+
+        
         const overlayRef = this.overlay.create({
             hasBackdrop: false,
             scrollStrategy: this.overlay.scrollStrategies.noop(),
             positionStrategy: this.overlay.position()
                 .global()
                 .right('20px')
-                .bottom(20 + 'px'),
+                .bottom(this.projectedHeight * popupPosition + 20 + 'px'),
             disposeOnNavigation: true
         });
 
         const modalPortal = new ComponentPortal(NotificationsComponent, null, this.injector);
         const modalRef = overlayRef.attach(modalPortal);
-        //KitNotificationService.popupsCount++;
         modalRef.instance.type = type;
         modalRef.instance.header = title;
         modalRef.instance.message = message;
 
-        KitNotificationService.Popups.enqueue({ overlayRef: overlayRef, bornAt: new Date() });
+        KitNotificationService.Popups.push({ overlayRef: overlayRef, bornAt: new Date(), position: popupPosition });
 
         return firstValueFrom(modalRef.instance.onClose$);
     }
